@@ -62,7 +62,24 @@ export default class DynmapMapProvider extends MapProvider {
 
 	private validateConfig() {
 		if(typeof this.config !== 'undefined') {
-			if (!this.config || this.config.constructor !== Object) {
+			if (!this.config) {
+				throw new ConfigurationError(`Dynmap configuration missing`);
+			}
+
+			if (typeof this.config === 'string') {
+				const baseURL = this.config;
+				this.config = Object.fromEntries([
+					{ key: 'configuration', path: 'up/configuration' },
+					{ key: 'login', path: 'up/login' },
+					{ key: 'markers', path: 'tiles/' },
+					{ key: 'register', path: 'up/register' },
+					{ key: 'sendmessage', path: 'up/sendmessage' },
+					{ key: 'tiles', path: 'tiles/' },
+					{ key: 'update', path: 'up/world/{world}/timestamp' },
+				].map(({ key, path }) => ([ key, new URL(path, baseURL).toString() ])));
+			}
+			
+			if (this.config.constructor !== Object) {
 				throw new ConfigurationError(`Dynmap configuration object missing`);
 			}
 
