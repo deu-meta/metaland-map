@@ -75,8 +75,8 @@ export default class DynmapMapProvider extends MapProvider {
 					{ key: 'register', path: 'up/register' },
 					{ key: 'sendmessage', path: 'up/sendmessage' },
 					{ key: 'tiles', path: 'tiles/' },
-					{ key: 'update', path: 'up/world/{world}/timestamp' },
-				].map(({ key, path }) => ([ key, new URL(path, baseURL).toString() ])));
+					{ key: 'update', path: 'up/world/{world}/{timestamp}' },
+				].map(({ key, path }) => ([ key, decodeURIComponent(new URL(path, baseURL).toString()) ])));
 			}
 			
 			if (this.config.constructor !== Object) {
