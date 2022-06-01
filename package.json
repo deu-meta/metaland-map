@@ -3,8 +3,8 @@
   "version": "3.0.0",
   "private": false,
   "scripts": {
-    "serve": "vite",
-    "preview": "vite preview --port 8082",
+    "serve": "vite --port 8003",
+    "preview": "vite preview --port 8003",
     "test": "jest",
     "build": "vue-tsc --noEmit && vite build --out-dir dist",
     "lint": "eslint --ext .ts,.vue src",
