@@ -185,7 +185,7 @@ export default defineComponent({
 	right: 0;
 	bottom: 0;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	padding: var(--ui-element-spacing);
 	font-size: 1.5rem;
 	will-change: transform;

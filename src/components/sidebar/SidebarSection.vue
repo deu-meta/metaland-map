@@ -20,6 +20,9 @@
 		'section--collapsible': collapsible,
 		'section--collapsed': collapsed
 	}" :data-section="name">
+		<div :id="`${name}-content`" class="section__content" :aria-hidden="collapsed">
+			<slot></slot>
+		</div>
 		<h2 class="section__heading">
 			<button :id="`${name}-heading`" type="button"
 			        @click.prevent="toggle" :title="title"
@@ -30,9 +33,6 @@
 				<SvgIcon v-if="collapsible" name="arrow"></SvgIcon>
 			</button>
 		</h2>
-		<div :id="`${name}-content`" class="section__content" :aria-hidden="collapsed">
-			<slot></slot>
-		</div>
 	</section>
 </template>
 
@@ -179,16 +179,16 @@ export default defineComponent({
 
 		&.section--collapsible {
 			.section__heading .svg-icon {
-				transform: rotate(180deg);
+				transform: none;
+			}
+
+			.section__heading, .section__heading button {
+				margin-bottom: -1.5rem;
 			}
 
 			&.section--collapsed {
 				.section__heading .svg-icon {
-					transform: none;
-				}
-
-				.section__heading, .section__heading button {
-					margin-bottom: -1.5rem;
+					transform: rotate(180deg);
 				}
 
 				.section__content {
