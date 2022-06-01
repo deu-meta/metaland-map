@@ -12,7 +12,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@kyvg/vue3-notification": "2.3.0",
+    "@kyvg/vue3-notification": "2.3.4",
     "@soerenmartius/vue3-clipboard": "^0.1",
     "leaflet": "git+https://github.com/JLyne/Leaflet.git#24d74a6a680401ae27d0c1c2ecc7dd770fc3d9fc",
     "lodash.debounce": "^4.0.8",
@@ -46,7 +46,7 @@
     "sass": "^1.52",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.8.0",
-    "typescript": "^4.5",
+    "typescript": "^4.7",
     "vite": "2.9.9",
     "vite-plugin-svg-sprite-component": "^1.0",
     "vue-tsc": "0.35.2"
