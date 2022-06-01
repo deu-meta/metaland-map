@@ -1,5 +1,0 @@
-name: LiveAtlas
-main: io.github.jlyne.LiveAtlasMain
-version: "${project.version}"
-author: JLyne
-depend: [ dynmap ]
