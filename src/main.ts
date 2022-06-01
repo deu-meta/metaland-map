@@ -58,15 +58,30 @@ registerMapProvider('pl3xmap', Pl3xmapMapProvider);
 registerMapProvider('squaremap', Pl3xmapMapProvider);
 registerMapProvider('overviewer', OverviewerMapProvider);
 
-const baseConfig = window.liveAtlasConfig;
 window.liveAtlasLoaded = true;
 
 (async () => {
 	try {
-		const config = {
-			...baseConfig,
-			...await (await fetch('/config.json')).json(),
+		const userConfig = await (await fetch('/config.json')).json();
+		const config = (window as any).liveAtlasConfig = {
+			...window.liveAtlasConfig,
+			...userConfig,
+
+			servers: {
+				...window.liveAtlasConfig.servers,
+				...userConfig.servers,
+			},
+			messages: {
+				...window.liveAtlasConfig.messages,
+				...userConfig.messages,
+			},
+			ui: {
+				...window.liveAtlasConfig.ui,
+				...userConfig.ui,
+			},
 		};
+
+		console.log(config);
 		config.servers = loadConfig(config);
 		store.commit(MutationTypes.INIT, config);
 
