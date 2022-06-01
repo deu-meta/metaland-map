@@ -142,6 +142,22 @@ export const mutations: MutationTree<State> & Mutations = {
 			state.ui.playersSearch = uiConfig.playersSearch;
 		}
 
+		if(typeof uiConfig.disableClockUI === 'boolean') {
+			state.ui.disableClockUI = uiConfig.disableClockUI;
+		}
+
+		if(typeof uiConfig.disableCoordinatesUI === 'boolean') {
+			state.ui.disableCoordinatesUI = uiConfig.disableCoordinatesUI;
+		}
+
+		if(typeof uiConfig.disableChatUI === 'boolean') {
+			state.ui.disableChatUI = uiConfig.disableChatUI;
+		}
+
+		if(typeof uiConfig.disableLink === 'boolean') {
+			state.ui.disableLink = uiConfig.disableLink;
+		}
+
 		state.servers = config.servers;
 
 		if(state.currentServer && !state.servers.has(state.currentServer.id)) {

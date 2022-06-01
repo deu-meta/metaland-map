@@ -126,6 +126,10 @@ interface LiveAtlasUIConfig {
 	compactPlayerMarkers: boolean;
 	disableContextMenu: boolean;
 	disableMarkerUI: boolean;
+	disableClockUI: boolean;
+	disableCoordinatesUI: boolean;
+	disableChatUI: boolean;
+	disableLink: boolean;
 }
 
 export type LiveAtlasUIElement = 'layers' | 'chat' | LiveAtlasSidebarSection;

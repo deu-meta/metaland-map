@@ -88,6 +88,10 @@ export type State = {
 		compactPlayerMarkers: boolean;
 		disableContextMenu: boolean;
 		disableMarkerUI: boolean;
+		disableClockUI: boolean;
+		disableCoordinatesUI: boolean;
+		disableChatUI: boolean;
+		disableLink: boolean;
 
 		screenWidth: number;
 		screenHeight: number;
