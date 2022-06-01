@@ -234,6 +234,10 @@ export const state: State = {
 		compactPlayerMarkers: false,
 		disableContextMenu: false,
 		disableMarkerUI: false,
+		disableChatUI: false,
+		disableClockUI: false,
+		disableCoordinatesUI: false,
+		disableLink: false,
 
 		screenWidth: window.innerWidth,
 		screenHeight: window.innerHeight,
