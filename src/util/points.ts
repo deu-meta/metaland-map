@@ -31,6 +31,19 @@ export const createPointLayer = (options: LiveAtlasPointMarker, converter: Funct
 	marker.on('click', (e: LeafletMouseEvent) => {
 		if(!e.target.getPopup() || e.target.isPopupOpen()) {
 			e.target._map.panTo(e.target.getLatLng());
+
+			// notice to parent window that marker was clicked
+			const event = {
+				type: 'markerclick',
+				marker: {
+					className: marker.options.icon.options.className,
+					iconSize: marker.options.icon.options.iconSize,
+					iconUrl: marker.options.icon.options.iconUrl,
+					label: marker.options.icon.options.label,
+				},
+			};
+			window.top?.postMessage(JSON.stringify(event), '*');
+			console.log(`Marker ${marker.options.icon.options.label} clicked.`);
 		}
 	});
 
